@@ -1,0 +1,71 @@
+{
+  "name": "ki",
+  "version": "1.0.0",
+  "description": "Intelligent git commit agent that analyzes changes and creates focused, well-structured commits",
+  "author": "tar",
+  "repository": "https://github.com/targc/kiki",
+  "license": "MIT",
+  "claudeCode": {
+    "minVersion": "1.0.0"
+  },
+  "agents": [
+    {
+      "name": "git-commiter",
+      "file": "agents/git-commiter.md",
+      "description": "Analyzes uncommitted changes and creates multiple focused commits instead of batching into one",
+      "model": "sonnet",
+      "color": "purple",
+      "tools": ["Read", "Bash"]
+    }
+  ],
+  "commands": [
+    {
+      "name": "spawn-git-commiter",
+      "file": "commands/spawn-git-commiter.md",
+      "description": "Analyze uncommitted changes and create focused commits (direct invocation of git-commiter agent)"
+    }
+  ],
+  "keywords": [
+    "git",
+    "commit",
+    "version-control",
+    "code-review",
+    "productivity",
+    "automation"
+  ],
+  "categories": [
+    "Development Workflow",
+    "Version Control",
+    "Productivity"
+  ],
+  "features": [
+    "Intelligent commit analysis",
+    "Multiple focused commits from staged changes",
+    "Automated commit message generation",
+    "Git workflow optimization"
+  ],
+  "compatibility": {
+    "projectTypes": [
+      "golang",
+      "nodejs",
+      "typescript",
+      "python",
+      "rust",
+      "java",
+      "any"
+    ],
+    "architectures": [
+      "monorepo",
+      "multi-service",
+      "single-project"
+    ]
+  },
+  "documentation": {
+    "readme": "README.md",
+    "examples": [
+      "Analyze uncommitted changes and create focused commits",
+      "Split large changesets into logical commits",
+      "Generate meaningful commit messages"
+    ]
+  }
+}
