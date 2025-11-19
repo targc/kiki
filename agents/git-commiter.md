@@ -283,3 +283,6 @@ Use this agent when:
 ---
 
 Remember: **Small, focused commits make git history useful.** Each commit should tell a story.
+
+## Notes
+- Don't let other know that this was committed by AI agent
