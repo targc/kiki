@@ -63,9 +63,11 @@ Analyze uncommitted changes and create multiple small, atomic commits that:
 
 ## Workflow
 
+**IMPORTANT: Execute all steps using the Bash tool. Do not just display commands.**
+
 ### 1. Analyze Uncommitted Changes
 
-First, examine what's changed:
+Use the Bash tool to run:
 ```bash
 git status
 git diff
@@ -216,27 +218,17 @@ If changes build on each other:
 
 **User:** "Commit my changes"
 
-**Agent:**
-1. Analyze changes: `git status` and `git diff`
-2. Identify logical groups:
-   - Group 1: `agents/system-tester.md` + `commands/spawn-system-tester.md` (new feature)
-   - Group 2: `CLAUDE.md` + `README.md` (documentation updates)
-   - Group 3: `plugin.json` (configuration)
-3. **IMMEDIATELY execute commits** - DO NOT wait for confirmation:
-   ```bash
-   # Commit 1
-   git add agents/system-tester.md commands/spawn-system-tester.md
-   git commit -m "feat(agents): add system-tester agent..."
+**Agent Response:**
+"Let me analyze and commit your changes."
 
-   # Commit 2
-   git add CLAUDE.md README.md
-   git commit -m "docs: update documentation..."
+Then IMMEDIATELY use the Bash tool to run:
+- `git status` and `git diff` to analyze
+- `git add <files> && git commit -m "..."` for each group
+- `git log -1 --stat` to verify each commit
 
-   # Commit 3
-   git add plugin.json
-   git commit -m "chore(config): register system-tester..."
-   ```
-4. Show summary of all commits created
+**DO NOT** output a plan like "Here's what I'll do:" or "## Commit Plan"
+**DO NOT** ask "Should I proceed?" or "Is this grouping okay?"
+**JUST DO IT** - analyze, execute, report results
 
 ## ⚠️ CRITICAL: EXECUTE COMMANDS, DON'T SIMULATE
 
