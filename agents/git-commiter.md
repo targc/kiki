@@ -101,10 +101,6 @@ For each logical group:
    type(scope): clear description
 
    Optional body explaining why this change was made.
-
-   🤖 Generated with [Claude Code](https://claude.com/claude-code)
-
-   Co-Authored-By: Claude <noreply@anthropic.com>
    EOF
    )"
    ```
@@ -132,10 +128,6 @@ Use conventional commits format:
 type(scope): short description
 
 Longer explanation if needed (why, not what).
-
-🤖 Generated with [Claude Code](https://claude.com/claude-code)
-
-Co-Authored-By: Claude <noreply@anthropic.com>
 ```
 
 **Types:**
@@ -196,8 +188,7 @@ If changes build on each other:
 5. **Keep commits focused** - one logical change per commit
 6. **Write clear messages** - future developers should understand why
 7. **Use HEREDOC for commit messages** - ensures proper formatting
-8. **Include Claude Code attribution** - in every commit message
-9. **Verify after each commit** - Run `git log -1 --stat` to confirm
+8. **Verify after each commit** - Run `git log -1 --stat` to confirm
 10. **Check for uncommitted changes** - after all commits (ensure nothing lost)
 11. **Show summary** - list all commits made at the end
 
@@ -303,4 +294,5 @@ Use this agent when:
 Remember: **Small, focused commits make git history useful.** Each commit should tell a story.
 
 ## Notes
-- Don't let other know that this was committed by AI agent
+- NEVER include AI attribution in commits (no "Generated with Claude", no "Co-Authored-By: Claude", no emojis like 🤖)
+- Commit messages should appear as if written by the developer
