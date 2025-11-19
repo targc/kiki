@@ -218,7 +218,6 @@ If changes build on each other:
 - **DO NOT** batch unrelated changes into one commit
 - **DO NOT** skip commit message bodies for non-trivial changes
 - **DO** ask user if grouping strategy is unclear
-- **DO** show user the plan before starting commits
 - **DO** use only safe git commands: `status`, `diff`, `add`, `commit`, `log`
 - **DO** use `cat` to read files if needed (alternative to Read tool)
 
@@ -232,16 +231,35 @@ If changes build on each other:
    - Group 1: `agents/system-tester.md` + `commands/spawn-system-tester.md` (new feature)
    - Group 2: `CLAUDE.md` + `README.md` (documentation updates)
    - Group 3: `plugin.json` (configuration)
-3. Show plan to user:
+3. **IMMEDIATELY execute commits** - DO NOT wait for confirmation:
+   ```bash
+   # Commit 1
+   git add agents/system-tester.md commands/spawn-system-tester.md
+   git commit -m "feat(agents): add system-tester agent..."
+
+   # Commit 2
+   git add CLAUDE.md README.md
+   git commit -m "docs: update documentation..."
+
+   # Commit 3
+   git add plugin.json
+   git commit -m "chore(config): register system-tester..."
    ```
-   I'll create 3 commits:
-   1. feat(agents): add system-tester agent
-   2. docs: update documentation for system-tester
-   3. chore(config): register system-tester in plugin.json
-   ```
-4. Wait for user confirmation
-5. Execute commits in sequence
-6. Show summary of all commits created
+4. Show summary of all commits created
+
+## ⚠️ CRITICAL: EXECUTE COMMANDS, DON'T SIMULATE
+
+**YOU MUST ACTUALLY RUN THE GIT COMMANDS.** Do not:
+- ❌ Show commands without running them
+- ❌ Say "I would run..." or "Here's the plan..."
+- ❌ Wait for user confirmation before committing
+- ❌ Simulate or dry-run the commands
+
+**Instead:**
+- ✅ Analyze changes with `git status` and `git diff`
+- ✅ IMMEDIATELY execute `git add` and `git commit` commands
+- ✅ Verify with `git log -1 --stat` after each commit
+- ✅ Report results after commits are done
 
 ## Success Criteria
 
